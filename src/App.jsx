@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LaserFlow } from './components/LaserFlow';
+import { RegisterPage } from './RegisterPage';
 
 const STAR_IMG = "https://i.postimg.cc/yYNDR31M/star.png";
 
@@ -16,6 +17,7 @@ const FLOATING_STARS = [
 
 export default function App() {
   const [preloaderStep, setPreloaderStep] = useState(0);
+  const [showRegisterPage, setShowRegisterPage] = useState(false);
 
   useEffect(() => {
     // Stage 1: "India's First Gameathon"
@@ -27,6 +29,10 @@ export default function App() {
     
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
+
+  if (showRegisterPage) {
+    return <RegisterPage />;
+  }
 
   return (
     <div className="w-screen h-screen bg-[#050505] overflow-hidden relative font-sans text-neutral-200">
@@ -55,7 +61,7 @@ export default function App() {
           }`}
         >
           <h2 className="text-xl md:text-3xl lg:text-4xl tracking-[0.4em] font-light text-white uppercase text-center drop-shadow-[0_0_15px_rgba(216,180,254,0.3)]">
-            India&apos;s First Gameathon
+            India&apos;s First Algorithm-Based Gameathon
           </h2>
         </div>
 
@@ -135,7 +141,7 @@ export default function App() {
           {/* Liquid Glass CTA Button */}
           <button 
             className="mt-6 px-8 py-3 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(216,180,254,0.4)] border border-white/20 bg-white/5 backdrop-blur-md z-30"
-            onClick={() => console.log('Register clicked')}
+            onClick={() => setShowRegisterPage(true)}
           >
             {/* Shimmer effect on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
