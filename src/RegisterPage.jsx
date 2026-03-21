@@ -19,7 +19,6 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import heroVideo from './assets/hero_video.mp4';
-
 // ==========================================
 // UTILITY FUNCTIONS
 // ==========================================
@@ -909,7 +908,6 @@ export function RegisterPage() {
 
       {/* Background Particle Stars */}
       <FloatingStars />
-
       {/* Hero Section with Chess Video */}
       <section className="min-h-[100svh] min-h-screen flex flex-col items-center justify-center px-4 relative mb-16 md:mb-32 overflow-hidden">
         {/* Background Video */}
@@ -917,17 +915,47 @@ export function RegisterPage() {
           <div className="absolute inset-0 bg-[#07040f]/70 z-10 mix-blend-multiply" /> {/* Dark purple overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#07040f] z-10" /> {/* Fade to bottom */}
           <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover opacity-50 blur-sm"
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
 
-        <div className="h-[20vh] md:h-[40vh] w-full max-w-7xl relative z-10 mt-8 md:mt-16">
+
+      {/* Mobile Animated Hero Text */}
+      <div className="md:hidden h-[20vh] w-full relative z-10 mt-12 flex items-center justify-center overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.08 }
+            }
+          }}
+          className="flex text-[15vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] tracking-tighter"
+        >
+          {"GAMEATHON".split('').map((char, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: '50%', scale: 0.8, rotateX: 90 },
+                visible: { opacity: 1, y: 0, scale: 1, rotateX: 0, transition: { type: "spring", damping: 15, stiffness: 200 } }
+              }}
+              style={{ transformOrigin: 'bottom' }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Desktop Text Pressure */}
+      <div className="hidden md:block h-[40vh] w-full max-w-7xl relative z-10 mt-16">
           <TextPressure 
             text="GAMEATHON" 
             flex={true} 
@@ -1091,16 +1119,16 @@ export function RegisterPage() {
         </div>
         <div className="w-full border-t border-purple-500/20">
           <AccordionItem title="Who can participate in Gameathon?">
-             Students from any recognized college or university are eligible to participate in the Gameathon challenge. School students (Class 6-12) and college students can participate in the standalone Chess Tournament.
+             Students from any recognized college or university are eligible to participate in the Gameathon challenge. School students (Class 6-12) and college students can participate in the standalone Chess Tournament and Revo Racers Esports event.
           </AccordionItem>
           <AccordionItem title="What is the registration fee?">
-            The entry fee is ₹300 per team for the 24-hour Gameathon Development challenge, and ₹200 for individuals participating in the Chess Tournament.
+            The entry fee is ₹300 per team for the 24-hour Gameathon Development challenge, and ₹200 for individuals participating in the Chess Tournament. Check the respective registration pages for Revo Racers entry details.
           </AccordionItem>
           <AccordionItem title="Can we use AI tools like ChatGPT or GitHub Copilot?">
             Yes, the use of AI tools is permitted to assist you during development. However, your core logic and submission must be original, and plagiarism of existing complete projects will result in disqualification.
           </AccordionItem>
           <AccordionItem title="What is the total prize pool?">
-            The event features a massive prize pool of ₹20,000 distributed among the top winners of the challenges.
+            The Gameathon hackathon features a prize pool of ₹20,000 distributed among the top winners, while the new Revo Racers Esport tournament boasts an independent massive prize pool of ₹25,000!
           </AccordionItem>
         </div>
       </section>
@@ -1109,13 +1137,14 @@ export function RegisterPage() {
       <section id="register" className="py-24 md:py-48 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <h3 className="text-[2.5rem] md:text-[5rem] font-black mb-4 md:mb-6 uppercase tracking-tighter leading-none">Choose Your Arena</h3>
-          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Compete in the 24-hour algorithmic development sprint or prove your strategic mastery on the chess board.</p>
+          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Compete in the 24-hour algorithmic sprint, prove your mastery on the chess board, or race to victory in the esports grand prix.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">
+        {/* Changed grid columns from md:grid-cols-2 to lg:grid-cols-3 to fit the 3rd card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           
           {/* Card 1: Gameathon */}
-          <div className="glass-panel p-6 md:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
+          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
               <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students Only</div>
               <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Gameathon Hackathon</h4>
@@ -1138,7 +1167,7 @@ export function RegisterPage() {
           </div>
 
           {/* Card 2: Chess Tournament */}
-          <div className="glass-panel p-6 md:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
+          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
               <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">Class 6-12 & College Students</div>
               <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament</h4>
@@ -1157,6 +1186,32 @@ export function RegisterPage() {
               innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-purple-500/30"
             >
               REGISTER FOR CHESS
+            </LiquidGlassButton>
+          </div>
+
+          {/* Card 3: Revo Racers Grand Prix */}
+          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors relative">
+            <div>
+              <div className="flex justify-between items-start mb-4">
+                <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mt-1">Esports Tournament</div>
+                <img src="https://i.imageupload.app/1b6477a510223d90c9a9.png" alt="Revolution Games" className="h-6 object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Revo Racers Grand Prix</h4>
+              <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Race to glory in a 2-stage event! Conquer online parking simulation to qualify for the ultimate offline team formula racing finals.</p>
+              
+              <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Stage 1: Online Prelims (Apr 1-2)</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Stage 2: Offline Finals (Apr 9-10)</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Team vs Team Formula Racing</li>
+                <li className="flex items-center"><span className="mr-3 text-fuchsia-400 font-medium">▹</span> Massive Prize Pool: ₹25,000</li>
+              </ul>
+            </div>
+            
+            <LiquidGlassButton
+              onClick={() => window.open('https://organizer.revoracers.com/register-tournament/rit-gameathon', '_blank', 'noopener,noreferrer')}
+              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-fuchsia-500/30"
+            >
+              REGISTER FOR REVO RACERS
             </LiquidGlassButton>
           </div>
 
@@ -1183,3 +1238,4 @@ export function RegisterPage() {
   );
 }
 
+export default RegisterPage;
