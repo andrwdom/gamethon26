@@ -35,7 +35,7 @@ export default function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-[#050505] overflow-hidden relative font-sans text-neutral-200">
+    <div className="w-full min-h-screen bg-[#050505] overflow-x-hidden relative font-sans text-neutral-200">
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
           @keyframes float-star {

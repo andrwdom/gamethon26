@@ -116,58 +116,6 @@ const LiquidGlassButton = ({ onClick, children, className = "", innerClassName =
   </button>
 );
 
-const TargetCursor = ({ targetSelector = '.cursor-target' }) => {
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
-  const cursorX = useSpring(mouseX, { damping: 40, stiffness: 500 });
-  const cursorY = useSpring(mouseY, { damping: 40, stiffness: 500 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    // Disable custom cursor on touch devices
-    if (window.matchMedia("(pointer: coarse)").matches) {
-      setIsTouch(true);
-      return;
-    }
-
-    const move = (e) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-    const checkHover = (e) => {
-      setIsHovered(!!e.target.closest(targetSelector));
-    };
-    window.addEventListener('mousemove', move);
-    window.addEventListener('mouseover', checkHover);
-    return () => {
-      window.removeEventListener('mousemove', move);
-      window.removeEventListener('mouseover', checkHover);
-    };
-  }, [mouseX, mouseY, targetSelector]);
-
-  if (isTouch) return null;
-
-  return (
-    <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999]"
-      style={{ x: cursorX, y: cursorY }}
-    >
-      <motion.div
-        animate={{
-          scale: isHovered ? 1.5 : 1,
-          rotate: isHovered ? 90 : 0
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="absolute top-1/2 left-1/2 w-8 h-8 -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
-      >
-        <div className="absolute top-0 left-1/2 w-[2px] h-full bg-purple-300 -translate-x-1/2" />
-        <div className="absolute top-1/2 left-0 w-full h-[2px] bg-purple-300 -translate-y-1/2" />
-      </motion.div>
-    </motion.div>
-  );
-};
-
 const FloatingStars = () => {
   const stars = useMemo(() => {
     return Array.from({ length: 15 }).map((_, i) => ({
@@ -962,11 +910,8 @@ export function RegisterPage() {
       {/* Background Particle Stars */}
       <FloatingStars />
 
-      {/* Target Cursor injected globally */}
-      <TargetCursor targetSelector=".cursor-target" />
-
       {/* Hero Section with Chess Video */}
-      <section className="h-screen flex flex-col items-center justify-center px-4 relative mb-16 md:mb-32 overflow-hidden">
+      <section className="min-h-[100svh] min-h-screen flex flex-col items-center justify-center px-4 relative mb-16 md:mb-32 overflow-hidden">
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full z-0">
           <div className="absolute inset-0 bg-[#07040f]/70 z-10 mix-blend-multiply" /> {/* Dark purple overlay */}
@@ -1018,10 +963,10 @@ export function RegisterPage() {
 
         <div className="mt-12 md:mt-24 text-2xl md:text-5xl font-light text-purple-200/50 flex items-center justify-center gap-2 md:gap-4 flex-wrap">
           <span>Building</span>
-          <div className="w-[160px] md:w-[280px] flex justify-start relative">
+          <div className="w-full max-w-[160px] md:max-w-[280px] flex justify-start relative">
             <RotatingText
               texts={['AI Bots ✦', 'Algorithms ✦', 'VR/AR ✦', 'Puzzles ✦']}
-              mainClassName="font-medium overflow-hidden text-purple-300"
+              mainClassName="font-medium text-purple-300"
               staggerDuration={0.03}
               splitBy="characters"
               animatePresenceMode="popLayout"
@@ -1035,7 +980,7 @@ export function RegisterPage() {
       <KnightParallax />
 
       {/* Velocity Marquee Transition */}
-      <section className="py-16 md:py-32 overflow-hidden opacity-20 hover:opacity-100 transition-opacity duration-700 select-none relative z-10">
+      <section className="py-16 md:py-32 overflow-hidden opacity-80 md:opacity-20 hover:opacity-100 transition-opacity duration-700 select-none relative z-10">
         <ScrollVelocity
           texts={['GAMEATHON 2026', 'RIT CSBS']}
           velocity={40}
@@ -1222,7 +1167,7 @@ export function RegisterPage() {
       <footer className="pt-16 md:pt-32 pb-8 relative z-10 overflow-hidden">
         {/* Massive Text Container - Edge to Edge */}
         <div className="w-full flex justify-center items-center pointer-events-none select-none overflow-hidden px-4">
-          <h2 className="text-[11.5vw] md:text-[11vw] lg:text-[10.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-purple-100 to-[#07040f] leading-[0.8] tracking-tighter m-0 p-0 text-center whitespace-nowrap drop-shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+          <h2 className="text-[11.5vw] md:text-[11vw] lg:text-[10.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-purple-100 to-[#07040f] leading-[0.8] tracking-tighter m-0 p-0 text-center whitespace-normal md:whitespace-nowrap drop-shadow-[0_0_30px_rgba(168,85,247,0.1)]">
             GAMEATHON
           </h2>
         </div>
