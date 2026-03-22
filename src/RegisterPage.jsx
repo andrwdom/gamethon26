@@ -19,6 +19,7 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import heroVideo from './assets/hero_video.mp4';
+
 // ==========================================
 // UTILITY FUNCTIONS
 // ==========================================
@@ -700,15 +701,16 @@ const RotatingText = forwardRef((props, ref) => {
     <motion.span
       className={cn('flex flex-wrap whitespace-pre-wrap relative', mainClassName)}
       {...rest}
-      layout
-      transition={transition}
     >
       <span className="sr-only">{texts[currentTextIndex]}</span>
+      {/* KEY FIX: Set mode to "wait" and removed layout prop from child to prevent layout anomalies */}
       <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
         <motion.span
           key={currentTextIndex}
           className={cn(splitBy === 'lines' ? 'flex flex-col w-full' : 'flex flex-wrap whitespace-pre-wrap relative')}
-          layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
           aria-hidden="true"
         >
           {elements.map((wordObj, wordIndex, array) => {
@@ -927,7 +929,7 @@ export function RegisterPage() {
 
 
       {/* Mobile Animated Hero Text */}
-      <div className="md:hidden h-[20vh] w-full relative z-10 mt-12 flex items-center justify-center overflow-hidden">
+      <div className="md:hidden w-full relative z-10 mt-12 flex items-center justify-center overflow-hidden px-4">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -937,7 +939,8 @@ export function RegisterPage() {
               transition: { staggerChildren: 0.08 }
             }
           }}
-          className="flex text-[15vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] tracking-tighter"
+          // Changed to justify-center, smaller 8.5vw for the wide font, and added whitespace-nowrap
+          className="flex justify-center whitespace-nowrap text-[8.5vw] sm:text-[9.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] tracking-tighter"
         >
           {"GAMEATHON".split('').map((char, i) => (
             <motion.span
@@ -991,13 +994,14 @@ export function RegisterPage() {
 
         <div className="mt-12 md:mt-24 text-2xl md:text-5xl font-light text-purple-200/50 flex items-center justify-center gap-2 md:gap-4 flex-wrap">
           <span>Building</span>
-          <div className="w-full max-w-[160px] md:max-w-[280px] flex justify-start relative">
+          <div className="w-full max-w-[160px] md:max-w-[280px] flex justify-start relative min-h-[1.5em]">
+            {/* KEY FIX: Set mode to wait so words swap smoothly without fighting for space */}
             <RotatingText
               texts={['AI Bots ✦', 'Algorithms ✦', 'VR/AR ✦', 'Puzzles ✦']}
               mainClassName="font-medium text-purple-300"
               staggerDuration={0.03}
               splitBy="characters"
-              animatePresenceMode="popLayout"
+              animatePresenceMode="wait"
               transition={{ type: 'spring', damping: 20, stiffness: 300 }}
             />
           </div>

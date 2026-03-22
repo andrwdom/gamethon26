@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { LaserFlow } from './components/LaserFlow';
-import { RegisterPage } from './RegisterPage';
+import React, { useState, useEffect } from 'react';
+import { LaserFlow } from './components/LaserFlow.jsx'; // Make sure the path is correct based on your folder structure
 
 const STAR_IMG = "https://i.postimg.cc/yYNDR31M/star.png";
 
@@ -17,7 +16,6 @@ const FLOATING_STARS = [
 
 export default function App() {
   const [preloaderStep, setPreloaderStep] = useState(0);
-  const [showRegisterPage, setShowRegisterPage] = useState(false);
 
   useEffect(() => {
     // Stage 1: "India's First Gameathon"
@@ -30,12 +28,8 @@ export default function App() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
-  if (showRegisterPage) {
-    return <RegisterPage />;
-  }
-
   return (
-    <div className="w-full min-h-screen bg-[#050505] overflow-x-hidden relative font-sans text-neutral-200">
+    <div className="w-screen h-screen bg-[#050505] overflow-hidden relative font-sans text-neutral-200">
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
           @keyframes float-star {
@@ -82,10 +76,12 @@ export default function App() {
         </div>
       </div>
 
-      {/* Laser Component rendered full screen */}
+      {/* Laser Component rendered full screen 
+          The shader originates its beam exactly from the center of its container (50vh)
+      */}
       <LaserFlow 
         className="absolute inset-0 cursor-crosshair z-0" 
-        color="#d8b4fe"
+        color="#d8b4fe" // A softer purple to match the reference
         wispDensity={1.0}
         flowSpeed={0.35}
         fogIntensity={0.6}
@@ -93,11 +89,9 @@ export default function App() {
         flowStrength={0.25}
         decay={1.1}
         mouseTiltStrength={0.01}
-        horizontalBeamOffset={-0.1} // Adjusted to make it touch the box
-        verticalBeamOffset={0.1} // Adjusted to make it touch the box
       />
 
-      {/* Main UI Overlay */}
+      {/* Main UI Overlay - Now wrapped with a cinematic reveal transition */}
       <div 
         className={`absolute inset-0 z-10 pointer-events-none flex flex-col transition-all duration-[2000ms] delay-500 ease-out ${
           preloaderStep === 3 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'
@@ -141,24 +135,29 @@ export default function App() {
           </h1>
           
           {/* Liquid Glass CTA Button */}
-          <button 
-            className="mt-6 px-8 py-3 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(216,180,254,0.4)] border border-white/20 bg-white/5 backdrop-blur-md z-30"
-            onClick={() => setShowRegisterPage(true)}
-          >
-            {/* Shimmer effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-            <span className="relative z-10 text-white font-bold tracking-[0.2em] uppercase text-xs md:text-sm drop-shadow-md">
-              Register Now
-            </span>
-          </button>
+            {/* Liquid Glass CTA Button */}
+            <button 
+              className="mt-6 px-8 py-3 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(216,180,254,0.4)] border border-white/20 bg-white/5 backdrop-blur-md z-30"
+              // 3. Update the onClick to navigate to the new route
+              onClick={() => window.location.href = '/register'}
+            >
+              {/* Shimmer effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+              <span className="relative z-10 text-white font-bold tracking-[0.2em] uppercase text-xs md:text-sm drop-shadow-md">
+                Register Now
+              </span>
+            </button>
         </div>
 
-        {/* Bottom Half: The Box */}
-        <div className="h-1/2 w-full flex justify-center px-4 md:px-12 pb-0 mt-[-16px]"> {/* Added negative margin for mobile */}
-          {/* Main Box Wrapper */}
+        {/* Bottom Half: The Box 
+            Since this div starts precisely at 50vh, its top edge aligns perfectly 
+            with the origin point of the LaserFlow shader behind it.
+        */}
+        <div className="h-1/2 w-full flex justify-center px-4 md:px-12 pb-0">
+          {/* Main Box Wrapper (Removed overflow-hidden so the Knight can pop out) */}
           <div className="w-full max-w-6xl h-full relative">
             
-            {/* Background & Borders Layer */}
+            {/* Background & Borders Layer (Keeps overflow-hidden for the dots and rounded corners) */}
             <div 
               className="absolute inset-0 rounded-t-[2.5rem] border-t-[1.5px] border-l border-r border-purple-500/30 overflow-hidden"
               style={{
@@ -178,7 +177,7 @@ export default function App() {
               />
             </div>
 
-            {/* Abstract Graphic Element */}
+            {/* Abstract Graphic Element (Behind the horse, shifted left) */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[18rem] md:w-[26rem] lg:w-[34rem] xl:w-[40rem] h-full flex justify-center items-start opacity-60 pointer-events-none mix-blend-screen">
               <img 
                 src="https://i.postimg.cc/kGvhPhR7/download-(3).png" 
@@ -191,7 +190,7 @@ export default function App() {
               />
             </div>
 
-            {/* Silver Knight Character */}
+            {/* Silver Knight Character (Now placed outside the overflow-hidden layer) */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[14rem] md:w-[20rem] lg:w-[26rem] xl:w-[30rem] h-full flex justify-center items-start opacity-95">
               <img 
                 src="https://i.postimg.cc/tgcZRqGg/Silver-Knight.png" 
