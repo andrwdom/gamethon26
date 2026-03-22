@@ -138,8 +138,8 @@ export default function App() {
             {/* Liquid Glass CTA Button */}
             <button 
               className="mt-6 px-8 py-3 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(216,180,254,0.4)] border border-white/20 bg-white/5 backdrop-blur-md z-30"
-              // 3. Update the onClick to navigate to the new route
-              onClick={() => window.location.href = `${window.location.origin}/register`}
+              // Update this line to use navigate!
+              onClick={() => window.location.href = '/register'}
             >
               {/* Shimmer effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
