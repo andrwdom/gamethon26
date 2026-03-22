@@ -93,6 +93,8 @@ export default function App() {
         flowStrength={0.25}
         decay={1.1}
         mouseTiltStrength={0.01}
+        horizontalBeamOffset={-0.1} // Adjusted to make it touch the box
+        verticalBeamOffset={0.1} // Adjusted to make it touch the box
       />
 
       {/* Main UI Overlay */}
