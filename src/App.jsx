@@ -154,7 +154,7 @@ export default function App() {
         </div>
 
         {/* Bottom Half: The Box */}
-        <div className="h-1/2 w-full flex justify-center px-4 md:px-12 pb-0">
+        <div className="h-1/2 w-full flex justify-center px-4 md:px-12 pb-0 mt-[-16px]"> {/* Added negative margin for mobile */}
           {/* Main Box Wrapper */}
           <div className="w-full max-w-6xl h-full relative">
             
