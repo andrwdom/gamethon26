@@ -1173,12 +1173,12 @@ export function RegisterPage() {
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
               <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">School Students</div>
-              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament</h4>
+              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament-School</h4>
               <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Test your strategic thinking and analytical skills against top minds in our parallel offline chess tournament.</p>
 
               <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Individual Participation</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Schools & Colleges</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Schools</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Offline Knockout/Swiss Format</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: Free</li>
               </ul>
@@ -1221,12 +1221,12 @@ export function RegisterPage() {
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
               <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students</div>
-              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament</h4>
+              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament-College</h4>
               <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Test your strategic thinking and analytical skills against top minds in our parallel offline chess tournament.</p>
 
               <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Individual Participation</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Schools & Colleges</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Colleges</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Offline Knockout/Swiss Format</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹200 per Person</li>
               </ul>
