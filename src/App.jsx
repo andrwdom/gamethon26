@@ -118,7 +118,7 @@ export default function App() {
             className="tracking-[0.3em] uppercase text-purple-200/80 font-semibold text-center drop-shadow-md z-20 px-4"
             style={{ fontSize: "clamp(0.6rem, 1.2vw, 1.25rem)" }}
           >
-            Rajalakshmi Institute Of Technology <br /> And <br />Department of Computer Science And Business Systems <br />proudly presents
+            Rajalakshmi Institute Of Technology <br />Department of Computer Science And Business Systems <br />proudly presents
           </h2>
           <h1
             className="tracking-widest text-white/90 z-20"
