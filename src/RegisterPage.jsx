@@ -93,7 +93,7 @@ const GlobalThemeStyles = () => (
 );
 
 const LiquidGlassButton = ({ onClick, children, className = "", innerClassName = "" }) => (
-  <button 
+  <button
     onClick={onClick}
     className={cn(
       "relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] group cursor-target transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(139,92,246,0.15)] hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]",
@@ -103,7 +103,7 @@ const LiquidGlassButton = ({ onClick, children, className = "", innerClassName =
     {/* Glowing gradient border effect */}
     <span className="absolute inset-0 bg-gradient-to-r from-purple-500/50 via-fuchsia-500/50 to-purple-500/50 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
     <span className="absolute inset-0 animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#a855f7_50%,#c084fc_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-    
+
     {/* Inner glass pill */}
     <span className={cn(
       "relative h-full w-full rounded-full bg-[#07040f]/80 backdrop-blur-xl flex items-center justify-center border border-white/10 group-hover:bg-[#07040f]/40 transition-colors duration-300 overflow-hidden",
@@ -126,7 +126,7 @@ const FloatingStars = () => {
       yEnd: Math.random() * 100,
       duration: 30 + Math.random() * 40,
       size: 20 + Math.random() * 40,
-      delay: Math.random() * -30, 
+      delay: Math.random() * -30,
       rotateDirection: Math.random() > 0.5 ? 360 : -360
     }));
   }, []);
@@ -321,9 +321,8 @@ const TextPressure = ({
       {styleElement}
       <h1
         ref={titleRef}
-        className={`text-pressure-title ${className} ${flex ? 'flex justify-between' : ''} ${
-          stroke ? 'stroke' : ''
-        } uppercase text-center`}
+        className={`text-pressure-title ${className} ${flex ? 'flex justify-between' : ''} ${stroke ? 'stroke' : ''
+          } uppercase text-center`}
         style={{
           fontFamily,
           fontSize: fontSize,
@@ -349,7 +348,7 @@ const ScrollFloatChar = ({ char, progress, index }) => {
   const stagger = 0.02;
   const start = Math.min(index * stagger, 0.8);
   const end = Math.min(start + 0.2, 1);
-  
+
   const y = useTransform(progress, [start, end], ["120%", "0%"]);
   const opacity = useTransform(progress, [start, end], [0, 1]);
   const scaleY = useTransform(progress, [start, end], [2.3, 1]);
@@ -357,14 +356,14 @@ const ScrollFloatChar = ({ char, progress, index }) => {
 
   return (
     <motion.span
-      style={{ 
-        y, 
-        opacity, 
-        scaleX, 
-        scaleY, 
-        display: 'inline-block', 
-        transformOrigin: '50% 0%', 
-        willChange: 'opacity, transform' 
+      style={{
+        y,
+        opacity,
+        scaleX,
+        scaleY,
+        display: 'inline-block',
+        transformOrigin: '50% 0%',
+        willChange: 'opacity, transform'
       }}
       className="cursor-target"
     >
@@ -393,11 +392,11 @@ const ScrollFloat = ({
     <h2 ref={containerRef} className={`my-2 md:my-5 overflow-hidden ${containerClassName}`}>
       <span className={`inline-block text-[clamp(2.2rem,8vw,7rem)] tracking-tight leading-[1.1] ${textClassName}`}>
         {chars.map((char, index) => (
-          <ScrollFloatChar 
-            key={index} 
-            char={char} 
-            progress={scrollYProgress} 
-            index={index} 
+          <ScrollFloatChar
+            key={index}
+            char={char}
+            progress={scrollYProgress}
+            index={index}
           />
         ))}
       </span>
@@ -751,11 +750,11 @@ const KnightParallax = () => {
   const containerRef = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   // Create 3D tilt effects
   const rotateX = useTransform(y, [-300, 300], [15, -15]);
   const rotateY = useTransform(x, [-300, 300], [-15, 15]);
-  
+
   // Create parallax shifting
   const abstractX = useTransform(x, [-300, 300], [-20, 20]);
   const abstractY = useTransform(y, [-300, 300], [-20, 20]);
@@ -777,7 +776,7 @@ const KnightParallax = () => {
   return (
     <section className="py-16 md:py-32 w-full flex items-center justify-center overflow-hidden relative z-10">
       <div className="max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
-        
+
         {/* Left Text Context */}
         <div className="flex-1 space-y-6 md:space-y-8 z-10 text-center md:text-left mt-8 md:mt-0 order-2 md:order-1">
           <h2 className="text-[2.5rem] md:text-[5rem] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-purple-100 to-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
@@ -790,7 +789,7 @@ const KnightParallax = () => {
         </div>
 
         {/* Right 3D Parallax Scene */}
-        <motion.div 
+        <motion.div
           ref={containerRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
@@ -803,15 +802,15 @@ const KnightParallax = () => {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Background glowing abstract */}
-            <motion.img 
-              src="https://i.postimg.cc/kGvhPhR7/download-(3).png" 
+            <motion.img
+              src="https://i.postimg.cc/kGvhPhR7/download-(3).png"
               style={{ x: abstractX, y: abstractY, translateZ: -50 }}
               className="absolute w-[90%] md:w-[90%] object-contain opacity-50 mix-blend-screen pointer-events-none filter blur-[2px] hue-rotate-[280deg]"
               alt=""
             />
             {/* Foreground Knight */}
-            <motion.img 
-              src="https://i.postimg.cc/tgcZRqGg/Silver-Knight.png" 
+            <motion.img
+              src="https://i.postimg.cc/tgcZRqGg/Silver-Knight.png"
               style={{ x: knightX, y: knightY, translateZ: 100 }}
               className="relative z-10 w-[70%] md:w-[70%] object-contain drop-shadow-[0_20px_50px_rgba(168,85,247,0.25)] pointer-events-none"
               alt="Silver Knight"
@@ -829,14 +828,14 @@ const AccordionItem = ({ title, children, defaultOpen = false }) => {
 
   return (
     <div className="border-b border-purple-500/20 cursor-target">
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left py-6 md:py-8 flex justify-between items-center group"
       >
         <span className="text-xl md:text-3xl font-light tracking-wide group-hover:text-purple-300 text-purple-200/70 transition-colors uppercase pr-4">
           {title}
         </span>
-        <motion.span 
+        <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="text-2xl md:text-3xl font-light text-purple-500/50 group-hover:text-purple-300"
@@ -900,7 +899,7 @@ export function RegisterPage() {
 
   return (
     <div className="bg-[#07040f] text-zinc-100 min-h-screen font-sans selection:bg-purple-500/30 selection:text-purple-100 overflow-x-hidden relative">
-      
+
       {/* Global Theme Overrides */}
       <GlobalThemeStyles />
 
@@ -916,7 +915,7 @@ export function RegisterPage() {
         <div className="absolute inset-0 w-full h-full z-0">
           <div className="absolute inset-0 bg-[#07040f]/70 z-10 mix-blend-multiply" /> {/* Dark purple overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#07040f] z-10" /> {/* Fade to bottom */}
-          <video 
+          <video
             autoPlay
             loop
             muted
@@ -928,51 +927,51 @@ export function RegisterPage() {
         </div>
 
 
-      {/* Mobile Animated Hero Text */}
-      <div className="md:hidden w-full relative z-10 mt-12 flex items-center justify-center overflow-hidden px-4">
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.08 }
-            }
-          }}
-          // Changed to justify-center, smaller 8.5vw for the wide font, and added whitespace-nowrap
-          className="flex justify-center whitespace-nowrap text-[8.5vw] sm:text-[9.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] tracking-tighter"
-        >
-          {"GAMEATHON".split('').map((char, i) => (
-            <motion.span
-              key={i}
-              variants={{
-                hidden: { opacity: 0, y: '50%', scale: 0.8, rotateX: 90 },
-                visible: { opacity: 1, y: 0, scale: 1, rotateX: 0, transition: { type: "spring", damping: 15, stiffness: 200 } }
-              }}
-              style={{ transformOrigin: 'bottom' }}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
+        {/* Mobile Animated Hero Text */}
+        <div className="md:hidden w-full relative z-10 mt-12 flex items-center justify-center overflow-hidden px-4">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.08 }
+              }
+            }}
+            // Changed to justify-center, smaller 8.5vw for the wide font, and added whitespace-nowrap
+            className="flex justify-center whitespace-nowrap text-[8.5vw] sm:text-[9.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_20px_rgba(168,85,247,0.4)] tracking-tighter"
+          >
+            {"GAMEATHON".split('').map((char, i) => (
+              <motion.span
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: '50%', scale: 0.8, rotateX: 90 },
+                  visible: { opacity: 1, y: 0, scale: 1, rotateX: 0, transition: { type: "spring", damping: 15, stiffness: 200 } }
+                }}
+                style={{ transformOrigin: 'bottom' }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
 
-      {/* Desktop Text Pressure */}
-      <div className="hidden md:block h-[40vh] w-full max-w-7xl relative z-10 mt-16">
-          <TextPressure 
-            text="GAMEATHON" 
-            flex={true} 
-            alpha={true} 
-            stroke={false} 
-            width={true} 
-            weight={true} 
+        {/* Desktop Text Pressure */}
+        <div className="hidden md:block h-[40vh] w-full max-w-7xl relative z-10 mt-16">
+          <TextPressure
+            text="GAMEATHON"
+            flex={true}
+            alpha={true}
+            stroke={false}
+            width={true}
+            weight={true}
             italic={true}
             textColor="#FFFFFF"
           />
         </div>
-        
+
         <div className="relative z-10 flex flex-col items-center mt-8 md:mt-12 cursor-target">
-          <LiquidGlassButton 
+          <LiquidGlassButton
             onClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })}
             innerClassName="px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm"
           >
@@ -1023,44 +1022,44 @@ export function RegisterPage() {
       {/* Floating Highlights - Challenge Tracks */}
       <section className="py-16 md:py-32 relative z-10">
         <div className="px-4 md:px-6 mb-16 md:mb-32 text-[10px] md:text-xs uppercase tracking-[0.3em] text-purple-500/60 font-semibold text-center max-w-6xl mx-auto w-full">
-            Challenge Tracks
+          Challenge Tracks
         </div>
         <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-16 md:space-y-48">
-          <ScrollFloat 
-            animationDuration={1.4} 
-            stagger={0.04} 
+          <ScrollFloat
+            animationDuration={1.4}
+            stagger={0.04}
             containerClassName="text-left"
             textClassName="text-white font-medium"
           >
             1. Chess Bots.
           </ScrollFloat>
-          <ScrollFloat 
-            animationDuration={1.4} 
-            stagger={0.04} 
+          <ScrollFloat
+            animationDuration={1.4}
+            stagger={0.04}
             containerClassName="text-left md:text-center"
             textClassName="text-purple-200/70 font-medium"
           >
             2. Puzzle Solvers.
           </ScrollFloat>
-          <ScrollFloat 
-            animationDuration={1.4} 
-            stagger={0.04} 
+          <ScrollFloat
+            animationDuration={1.4}
+            stagger={0.04}
             containerClassName="text-left md:text-right"
             textClassName="text-purple-300/50 font-medium"
           >
             3. Retro Games.
           </ScrollFloat>
-          <ScrollFloat 
-            animationDuration={1.4} 
-            stagger={0.04} 
+          <ScrollFloat
+            animationDuration={1.4}
+            stagger={0.04}
             containerClassName="text-left md:text-center"
             textClassName="text-purple-400/40 font-medium"
           >
             4. VR/AR Games.
           </ScrollFloat>
-          <ScrollFloat 
-            animationDuration={1.4} 
-            stagger={0.04} 
+          <ScrollFloat
+            animationDuration={1.4}
+            stagger={0.04}
             containerClassName="text-left"
             textClassName="text-purple-500/30 font-medium"
           >
@@ -1072,7 +1071,7 @@ export function RegisterPage() {
       {/* Rules and Regulations */}
       <section className="py-16 md:py-32 px-4 md:px-6 max-w-5xl mx-auto relative z-10">
         <div className="mb-12 md:mb-16 text-[10px] md:text-xs uppercase tracking-[0.3em] text-purple-500/60 font-semibold text-center w-full">
-            Rulebook
+          Rulebook
         </div>
         <div className="w-full border-t border-purple-500/20">
           <AccordionItem title="1. Team Formation & Eligibility" defaultOpen={true}>
@@ -1083,7 +1082,7 @@ export function RegisterPage() {
               <li>Students from any recognized college or university are eligible to participate.</li>
             </ul>
           </AccordionItem>
-          
+
           <AccordionItem title="2. Project Development Guidelines">
             <ul className="list-disc pl-6 space-y-3">
               <li>The project must be developed exclusively during the innovation challenge timeline only.</li>
@@ -1119,11 +1118,11 @@ export function RegisterPage() {
       {/* FAQs */}
       <section className="py-16 md:py-24 px-4 md:px-6 max-w-5xl mx-auto relative z-10">
         <div className="mb-12 md:mb-16 text-[10px] md:text-xs uppercase tracking-[0.3em] text-purple-500/60 font-semibold text-center w-full">
-            FAQs
+          FAQs
         </div>
         <div className="w-full border-t border-purple-500/20">
           <AccordionItem title="Who can participate in Gameathon?">
-             Students from any recognized college or university are eligible to participate in the Gameathon challenge. School students (Class 6-12) and college students can participate in the standalone Chess Tournament and Revo Racers Esports event.
+            Students from any recognized college or university are eligible to participate in the Gameathon challenge. School students (Class 6-12) and college students can participate in the standalone Chess Tournament and Revo Racers Esports event.
           </AccordionItem>
           <AccordionItem title="What is the registration fee?">
             The entry fee is ₹300 per team for the 24-hour Gameathon Development challenge, and ₹200 for individuals participating in the Chess Tournament. Check the respective registration pages for Revo Racers entry details.
@@ -1143,17 +1142,17 @@ export function RegisterPage() {
           <h3 className="text-[2.5rem] md:text-[5rem] font-black mb-4 md:mb-6 uppercase tracking-tighter leading-none">Choose Your Arena</h3>
           <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Compete in the 24-hour algorithmic sprint, prove your mastery on the chess board, or race to victory in the esports grand prix.</p>
         </div>
-        
+
         {/* Changed grid columns from md:grid-cols-2 to lg:grid-cols-3 to fit the 3rd card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-          
+
           {/* Card 1: Gameathon */}
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
               <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students Only</div>
               <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Gameathon Hackathon</h4>
               <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Build AI bots, puzzle solvers, retro remakes, or VR/AR games over an intense 24-hour development cycle.</p>
-              
+
               <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Team Size: 2-4 Members</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> 24-Hour Offline Hackathon</li>
@@ -1161,7 +1160,7 @@ export function RegisterPage() {
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹300 per Team</li>
               </ul>
             </div>
-            
+
             <LiquidGlassButton
               onClick={() => window.open('https://forms.easebuzz.in/register/RAJALAKSHMIbw5w4/Gamethon_Hackathon_Reg', '_blank', 'noopener,noreferrer')}
               innerClassName="w-full py-4 md:py-5 text-xs md:text-sm"
@@ -1170,26 +1169,26 @@ export function RegisterPage() {
             </LiquidGlassButton>
           </div>
 
-          {/* Card 2: Chess Tournament */}
+          {/* Card 2: Chess Tournament School */}
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
             <div>
-              <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">Class 6-12 & College Students</div>
+              <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">School Students</div>
               <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament</h4>
               <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Test your strategic thinking and analytical skills against top minds in our parallel offline chess tournament.</p>
-              
+
               <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Individual Participation</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Schools & Colleges</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Offline Knockout/Swiss Format</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹200 per Person</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: Free</li>
               </ul>
             </div>
-            
+
             <LiquidGlassButton
-              onClick={() => window.open('https://forms.easebuzz.in/register/RAJALAKSHMIbw5w4/GAMETHON_CHESS_COMPETITION', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open('https://forms.gle/viWNoWwzXUDdHsdK6', '_blank', 'noopener,noreferrer')}
               innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-purple-500/30"
             >
-              REGISTER FOR CHESS
+              REGISTER FOR CHESS ( School Students Only)
             </LiquidGlassButton>
           </div>
 
@@ -1202,7 +1201,7 @@ export function RegisterPage() {
               </div>
               <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Revo Racers Grand Prix</h4>
               <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Race to glory in a 2-stage event! Conquer online parking simulation to qualify for the ultimate offline team formula racing finals.</p>
-              
+
               <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Stage 1: Online Prelims (Apr 1-2)</li>
                 <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Stage 2: Offline Finals (Apr 9-10)</li>
@@ -1210,12 +1209,34 @@ export function RegisterPage() {
                 <li className="flex items-center"><span className="mr-3 text-fuchsia-400 font-medium">▹</span> Massive Prize Pool: ₹25,000</li>
               </ul>
             </div>
-            
+
             <LiquidGlassButton
               onClick={() => window.open('https://organizer.revoracers.com/register-tournament/rit-gameathon', '_blank', 'noopener,noreferrer')}
               innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-fuchsia-500/30"
             >
               REGISTER FOR REVO RACERS
+            </LiquidGlassButton>
+          </div>
+
+          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
+            <div>
+              <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students</div>
+              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Chess Tournament</h4>
+              <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Test your strategic thinking and analytical skills against top minds in our parallel offline chess tournament.</p>
+
+              <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Individual Participation</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Open to Schools & Colleges</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Offline Knockout/Swiss Format</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹200 per Person</li>
+              </ul>
+            </div>
+
+            <LiquidGlassButton
+              onClick={() => window.open('https://forms.easebuzz.in/register/RAJALAKSHMIbw5w4/GAMETHON_CHESS_COMPETITION', '_blank', 'noopener,noreferrer')}
+              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-purple-500/30"
+            >
+              REGISTER FOR CHESS ( College Students Only)
             </LiquidGlassButton>
           </div>
 
@@ -1230,7 +1251,7 @@ export function RegisterPage() {
             GAMEATHON
           </h2>
         </div>
-        
+
         {/* Copyright Layout - Flexed on Desktop, Stacked on Mobile */}
         <div className="max-w-7xl mx-auto px-4 mt-8 md:mt-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left text-purple-300/40 text-[10px] md:text-xs tracking-[0.2em] uppercase border-t border-purple-500/10 pt-8 gap-4">
           <p>Organized by Dept. of CSBS</p>

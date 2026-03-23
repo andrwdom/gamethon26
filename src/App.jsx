@@ -114,11 +114,25 @@ export default function App() {
 
         {/* Top Half: Title */}
         <div className="h-1/2 flex flex-col items-center justify-center pt-10 space-y-4 md:space-y-6">
-          <h2
-            className="tracking-[0.3em] uppercase text-purple-200/80 font-semibold text-center drop-shadow-md z-20 px-4"
-            style={{ fontSize: "clamp(0.6rem, 1.2vw, 1.25rem)" }}
-          >
-            Rajalakshmi Institute Of Technology <br />Department of Computer Science And Business Systems <br />proudly presents
+          <h2 className="uppercase text-center z-20 px-4">
+            <span
+              className="block tracking-[0.3em] text-white font-bold drop-shadow-[0_0_15px_rgba(216,180,254,0.3)]"
+              style={{ fontSize: "clamp(1rem, 2.2vw, 2rem)" }}
+            >
+              Rajalakshmi Institute Of Technology
+            </span>
+            <span
+              className="block tracking-[0.3em] text-purple-200/70 font-semibold mt-1"
+              style={{ fontSize: "clamp(0.55rem, 1vw, 1rem)" }}
+            >
+              Department of Computer Science And Business Systems
+            </span>
+            <span
+              className="block tracking-[0.3em] text-purple-200/70 font-semibold mt-0.5"
+              style={{ fontSize: "clamp(0.55rem, 1vw, 1rem)" }}
+            >
+              proudly presents
+            </span>
           </h2>
           <h1
             className="tracking-widest text-white/90 z-20"
@@ -133,13 +147,12 @@ export default function App() {
           {/* Liquid Glass CTA Button */}
           {/* Liquid Glass CTA Button */}
           <button
-            className="mt-1 px-8 py-3 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(216,180,254,0.4)] border border-white/20 bg-white/5 backdrop-blur-md z-30"
-            // Update this line to use navigate!
+            className="mt-2 px-10 py-3.5 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,180,254,0.25)] border border-purple-300/30 bg-white/[0.07] backdrop-blur-lg z-30"
             onClick={() => window.location.href = '/register'}
           >
             {/* Shimmer effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-            <span className="relative z-10 text-white font-bold tracking-[0.2em] uppercase text-xs md:text-sm drop-shadow-md">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+            <span className="relative z-10 text-white font-semibold tracking-[0.2em] uppercase text-sm md:text-base drop-shadow-md">
               Register Now
             </span>
           </button>
