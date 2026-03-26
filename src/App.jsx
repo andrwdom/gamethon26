@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LaserFlow } from './components/LaserFlow.jsx'; // Make sure the path is correct based on your folder structure
+import revolutionGamesLogo from './assets/revolutionGamesLogo.jpeg';
 
 const STAR_IMG = "https://i.postimg.cc/yYNDR31M/star.png";
 
@@ -20,12 +21,14 @@ export default function App() {
   useEffect(() => {
     // Stage 1: "India's First Gameathon"
     const t1 = setTimeout(() => setPreloaderStep(1), 500);
-    // Stage 2: "Presented By" + Logo
-    const t2 = setTimeout(() => setPreloaderStep(2), 3500);
-    // Stage 3: Reveal Main Landing Page
-    const t3 = setTimeout(() => setPreloaderStep(3), 6500);
+    // Stage 2: "Presented By" + RIT Logo
+    const t2 = setTimeout(() => setPreloaderStep(2), 3000);
+    // Stage 3: "Title Sponsor" + Revolution Games Logo
+    const t3 = setTimeout(() => setPreloaderStep(3), 5200);
+    // Stage 4: Reveal Main Landing Page
+    const t4 = setTimeout(() => setPreloaderStep(4), 9500);
 
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
   return (
@@ -44,7 +47,7 @@ export default function App() {
 
       {/* Cinematic Preloader Overlay */}
       <div
-        className={`absolute inset-0 z-50 flex items-center justify-center bg-[#050505] transition-all duration-[1500ms] ease-in-out ${preloaderStep === 3 ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        className={`absolute inset-0 z-50 flex items-center justify-center bg-[#050505] transition-all duration-[1500ms] ease-in-out ${preloaderStep === 4 ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
       >
         {/* Prompt 1 */}
@@ -53,7 +56,7 @@ export default function App() {
             }`}
         >
           <h2 className="text-xl md:text-3xl lg:text-4xl tracking-[0.4em] font-light text-white uppercase text-center drop-shadow-[0_0_15px_rgba(216,180,254,0.3)]">
-            India&apos;s First Algorithm-Based Gameathon
+            India&apos;s First National Level Algorithm-Based Gameathon
           </h2>
         </div>
 
@@ -71,6 +74,21 @@ export default function App() {
             className="h-20 md:h-28 lg:h-36 object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]"
           />
         </div>
+
+        {/* Prompt 3: Title Sponsor */}
+        <div
+          className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out ${preloaderStep === 3 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-md'
+            }`}
+        >
+          <p className="text-xs md:text-sm tracking-[0.5em] text-amber-300/60 uppercase mb-8">
+            Title Sponsor
+          </p>
+          <img
+            src={revolutionGamesLogo}
+            alt="Revolution Games - Title Sponsor"
+            className="h-40 md:h-40 lg:h-36 object-contain rounded-xl drop-shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+          />
+        </div>
       </div>
 
       {/* Laser Component rendered full screen 
@@ -86,11 +104,12 @@ export default function App() {
         flowStrength={0.25}
         decay={1.1}
         mouseTiltStrength={0.01}
+        z-index={-10000}
       />
 
       {/* Main UI Overlay - Now wrapped with a cinematic reveal transition */}
       <div
-        className={`absolute inset-0 z-10 pointer-events-none flex flex-col transition-all duration-[2000ms] delay-500 ease-out ${preloaderStep === 3 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'
+        className={`absolute inset-0 z-10 pointer-events-none flex flex-col transition-all duration-[2000ms] delay-500 ease-out ${preloaderStep === 4 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'
           }`}
       >
 
@@ -125,7 +144,7 @@ export default function App() {
               className="block tracking-[0.3em] text-purple-200/70 font-semibold mt-1"
               style={{ fontSize: "clamp(0.55rem, 1vw, 1rem)" }}
             >
-              Department of Computer Science And Business Systems
+              Department of Computer Science And Business Systems<br /> In Colloboration with <span className="text-amber-300 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]">Revolution Games Private Limited</span>
             </span>
             <span
               className="block tracking-[0.3em] text-purple-200/70 font-semibold mt-0.5"
@@ -145,14 +164,13 @@ export default function App() {
           </h1>
 
           {/* Liquid Glass CTA Button */}
-          {/* Liquid Glass CTA Button */}
           <button
-            className="mt-2 px-10 py-3.5 md:px-12 md:py-4 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,180,254,0.25)] border border-purple-300/30 bg-white/[0.07] backdrop-blur-lg z-30"
+            className="mt-10 px-12 py-4 md:px-16 md:py-5 rounded-full pointer-events-auto relative overflow-hidden group transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_45px_rgba(168,85,247,0.6)] border border-purple-400/50 bg-gradient-to-r from-purple-600/40 via-fuchsia-600/30 to-purple-600/40 backdrop-blur-lg z-40 flex items-center justify-center"
             onClick={() => window.location.href = '/register'}
           >
             {/* Shimmer effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-            <span className="relative z-10 text-white font-semibold tracking-[0.2em] uppercase text-sm md:text-base drop-shadow-md">
+            <div className="absolute mb-10 inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+            <span className="relative z-10 text-white font-bold tracking-[0.25em] uppercase text-base md:text-lg drop-shadow-[0_0_8px_rgba(216,180,254,0.5)]">
               Register Now
             </span>
           </button>
@@ -162,7 +180,7 @@ export default function App() {
             Since this div starts precisely at 50vh, its top edge aligns perfectly 
             with the origin point of the LaserFlow shader behind it.
         */}
-        <div className="h-1/2 w-full flex justify-center px-4 md:px-12 pb-0">
+        <div className="h-1/2 w-full flex justify-center mt-10 px-4 md:px-12 pb-0">
           {/* Main Box Wrapper (Removed overflow-hidden so the Knight can pop out) */}
           <div className="w-full max-w-6xl h-full relative">
 

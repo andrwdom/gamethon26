@@ -19,6 +19,7 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import heroVideo from './assets/hero_video.mp4';
+import revolutionGamesLogo from './assets/revolutionGamesLogo.jpeg';
 
 // ==========================================
 // UTILITY FUNCTIONS
@@ -1136,6 +1137,8 @@ export function RegisterPage() {
         </div>
       </section>
 
+
+
       {/* Split Registration Section */}
       <section id="register" className="py-24 md:py-48 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
@@ -1241,6 +1244,55 @@ export function RegisterPage() {
           </div>
 
         </div>
+      </section>
+
+
+
+      {/* ====== TITLE SPONSOR SECTION ====== */}
+      <section className="py-16 md:py-24 px-4 md:px-6 max-w-5xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
+        >
+          {/* Label */}
+          <div className="text-[30px] md:text-x uppercase tracking-[0.4em] text-amber-400/70 font-semibold mb-6 md:mb-10">
+            ✦ Title Sponsor ✦
+          </div>
+
+          {/* Sponsor Card */}
+          <div className="relative group w-full max-w-2xl">
+            {/* Animated golden glow behind the card */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500/30 via-yellow-400/20 to-amber-500/30 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 animate-pulse" />
+
+            <div className="relative glass-panel rounded-3xl p-8 md:p-12 flex flex-col items-center gap-6 md:gap-8 border-amber-500/20 hover:border-amber-400/40 transition-colors duration-500 overflow-hidden">
+              {/* Subtle shimmer sweep */}
+              <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-amber-300/10 to-transparent skew-x-[-45deg] animate-liquid-shine pointer-events-none" />
+
+              {/* Logo */}
+              <a href="https://revolutiongamesindia.com/" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <motion.img
+                  src={revolutionGamesLogo}
+                  alt="Revolution Games — Title Sponsor"
+                  className="w-48 md:w-72 object-contain rounded-xl shadow-[0_0_40px_rgba(245,158,11,0.15)] group-hover:shadow-[0_0_60px_rgba(245,158,11,0.3)] transition-shadow duration-500"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                />
+              </a>
+
+              {/* Sponsor Name */}
+              <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 drop-shadow-[0_0_20px_rgba(245,158,11,0.3)] text-center">
+                Revolution Games
+              </h3>
+
+              <p className="text-purple-200/50 text-sm md:text-base font-light text-center max-w-lg">
+                Proudly powering Gameathon 2026 as our Title Sponsor.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Massive Typographic Footer - Fixed Layout */}
