@@ -21,7 +21,7 @@ import {
 import heroVideo from './assets/hero_video.mp4';
 import revolutionGamesLogo from './assets/revolutionGamesLogo.jpeg';
 import distinctLogo from './assets/distinct.jpeg';
-import inspireLogo from './assets/Inspire Logo.pnG';
+import inspireLogo from './assets/Inspire Logo.webp';
 import eightQueensLogo from './assets/8queens.jpeg';
 
 // ==========================================
