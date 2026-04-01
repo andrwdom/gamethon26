@@ -1143,34 +1143,11 @@ export function RegisterPage() {
       <section id="register" className="py-24 md:py-48 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <h3 className="text-[2.5rem] md:text-[5rem] font-black mb-4 md:mb-6 uppercase tracking-tighter leading-none">Choose Your Arena</h3>
-          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Compete in the 24-hour algorithmic sprint, prove your mastery on the chess board, or race to victory in the esports grand prix.</p>
+          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Prove your mastery on the chess board or race to victory in the esports grand prix.</p>
         </div>
 
         {/* Changed grid columns from md:grid-cols-2 to lg:grid-cols-3 to fit the 3rd card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-
-          {/* Card 1: Gameathon */}
-          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
-            <div>
-              <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students Only</div>
-              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Gameathon Hackathon</h4>
-              <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Build AI bots, puzzle solvers, retro remakes, or VR/AR games over an intense 24-hour development cycle.</p>
-
-              <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Team Size: 2-4 Members</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> 24-Hour Offline Hackathon</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Access to Mentors & Workspace</li>
-                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹300 per Team</li>
-              </ul>
-            </div>
-
-            <LiquidGlassButton
-              onClick={() => window.open('https://forms.easebuzz.in/register/RAJALAKSHMIbw5w4/Gamethon_Hackathon_Reg', '_blank', 'noopener,noreferrer')}
-              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm"
-            >
-              REGISTER FOR GAMEATHON
-            </LiquidGlassButton>
-          </div>
 
           {/* Card 2: Chess Tournament School */}
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
