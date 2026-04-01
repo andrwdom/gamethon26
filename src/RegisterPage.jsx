@@ -1146,11 +1146,35 @@ export function RegisterPage() {
       <section id="register" className="py-24 md:py-48 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <h3 className="text-[2.5rem] md:text-[5rem] font-black mb-4 md:mb-6 uppercase tracking-tighter leading-none">Choose Your Arena</h3>
-          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Prove your mastery on the chess board or race to victory in the esports grand prix.</p>
+          <p className="text-purple-200/50 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto">Select your path. Compete in the 24-hour algorithmic sprint, prove your mastery on the chess board, or race to victory in the esports grand prix.</p>
         </div>
 
         {/* Changed grid columns from md:grid-cols-2 to lg:grid-cols-3 to fit the 3rd card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+
+          <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
+            <div>
+              <div className="text-purple-400/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-4">College Students Only</div>
+              <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Gameathon Hackathon</h4>
+              <p className="text-purple-200/60 font-light mb-6 md:mb-8 text-sm md:text-base">Build AI bots, puzzle solvers, retro remakes, or VR/AR games over an intense 24-hour development cycle.</p>
+
+              <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-purple-200/80 font-light mb-8 md:mb-12">
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Team Size: 2-4 Members</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> 24-Hour Offline Hackathon</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Access to Mentors & Workspace</li>
+                <li className="flex items-center"><span className="mr-3 text-purple-400">▹</span> Entry Fee: ₹300 per Team</li>
+              </ul>
+            </div>
+
+            <div
+              className="relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] w-full opacity-50 cursor-not-allowed select-none"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-gray-500/30 via-gray-400/20 to-gray-500/30" />
+              <span className="relative h-full w-full rounded-full bg-[#07040f]/80 backdrop-blur-xl flex items-center justify-center border border-white/10 overflow-hidden py-4 md:py-5">
+                <span className="relative z-10 text-white/60 font-semibold tracking-widest text-xs md:text-sm">REGISTRATION CLOSED</span>
+              </span>
+            </div>
+          </div>
 
           {/* Card 2: Chess Tournament School */}
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
@@ -1226,12 +1250,12 @@ export function RegisterPage() {
           </div>
 
         </div>
-      </section>
+      </section >
 
 
 
       {/* ====== TITLE SPONSOR SECTION ====== */}
-      <section className="py-16 md:py-24 px-4 md:px-6 max-w-5xl mx-auto relative z-10">
+      < section className="py-16 md:py-24 px-4 md:px-6 max-w-5xl mx-auto relative z-10" >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1275,10 +1299,10 @@ export function RegisterPage() {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section >
 
       {/* ====== ASSOCIATE PARTNERS SECTION ====== */}
-      <section className="py-12 md:py-20 px-4 md:px-6 max-w-6xl mx-auto relative z-10">
+      < section className="py-12 md:py-20 px-4 md:px-6 max-w-6xl mx-auto relative z-10" >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1347,25 +1371,25 @@ export function RegisterPage() {
 
           </div>
         </motion.div>
-      </section>
+      </section >
 
       {/* Massive Typographic Footer - Fixed Layout */}
-      <footer className="pt-16 md:pt-32 pb-8 relative z-10 overflow-hidden">
+      < footer className="pt-16 md:pt-32 pb-8 relative z-10 overflow-hidden" >
         {/* Massive Text Container - Edge to Edge */}
-        <div className="w-full flex justify-center items-center pointer-events-none select-none overflow-hidden px-4">
+        < div className="w-full flex justify-center items-center pointer-events-none select-none overflow-hidden px-4" >
           <h2 className="text-[11.5vw] md:text-[11vw] lg:text-[10.5vw] font-climate text-transparent bg-clip-text bg-gradient-to-b from-purple-100 to-[#07040f] leading-[0.8] tracking-tighter m-0 p-0 text-center whitespace-normal md:whitespace-nowrap drop-shadow-[0_0_30px_rgba(168,85,247,0.1)]">
             GAMEATHON
           </h2>
-        </div>
+        </div >
 
         {/* Copyright Layout - Flexed on Desktop, Stacked on Mobile */}
-        <div className="max-w-7xl mx-auto px-4 mt-8 md:mt-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left text-purple-300/40 text-[10px] md:text-xs tracking-[0.2em] uppercase border-t border-purple-500/10 pt-8 gap-4">
+        < div className="max-w-7xl mx-auto px-4 mt-8 md:mt-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left text-purple-300/40 text-[10px] md:text-xs tracking-[0.2em] uppercase border-t border-purple-500/10 pt-8 gap-4" >
           <p>Organized by Dept. of CSBS</p>
           <p>© 2026 Rajalakshmi Institute of Technology</p>
-        </div>
-      </footer>
+        </div >
+      </footer >
 
-    </div>
+    </div >
   );
 }
 
