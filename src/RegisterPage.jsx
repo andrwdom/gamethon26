@@ -20,6 +20,9 @@ import {
 } from 'framer-motion';
 import heroVideo from './assets/hero_video.mp4';
 import revolutionGamesLogo from './assets/revolutionGamesLogo.jpeg';
+import distinctLogo from './assets/distinct.jpeg';
+import inspireLogo from './assets/Inspire Logo.pnG';
+import eightQueensLogo from './assets/8queens.jpeg';
 
 // ==========================================
 // UTILITY FUNCTIONS
@@ -1164,12 +1167,14 @@ export function RegisterPage() {
               </ul>
             </div>
 
-            <LiquidGlassButton
-              onClick={() => window.open('https://forms.easebuzz.in/register/RAJALAKSHMIbw5w4/Gamethon_Hackathon_Reg', '_blank', 'noopener,noreferrer')}
-              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm"
+            <div
+              className="relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] w-full opacity-50 cursor-not-allowed select-none"
             >
-              REGISTER FOR GAMEATHON
-            </LiquidGlassButton>
+              <span className="absolute inset-0 bg-gradient-to-r from-gray-500/30 via-gray-400/20 to-gray-500/30" />
+              <span className="relative h-full w-full rounded-full bg-[#07040f]/80 backdrop-blur-xl flex items-center justify-center border border-white/10 overflow-hidden py-4 md:py-5">
+                <span className="relative z-10 text-white/60 font-semibold tracking-widest text-xs md:text-sm">REGISTRATION CLOSED</span>
+              </span>
+            </div>
           </div>
 
           {/* Card 2: Chess Tournament School */}
@@ -1213,12 +1218,14 @@ export function RegisterPage() {
               </ul>
             </div>
 
-            <LiquidGlassButton
-              onClick={() => window.open('https://organizer.revoracers.com/register-tournament/rit-gameathon', '_blank', 'noopener,noreferrer')}
-              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-fuchsia-500/30"
+            <div
+              className="relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] w-full opacity-50 cursor-not-allowed select-none"
             >
-              REGISTER FOR REVO RACERS
-            </LiquidGlassButton>
+              <span className="absolute inset-0 bg-gradient-to-r from-gray-500/30 via-gray-400/20 to-gray-500/30" />
+              <span className="relative h-full w-full rounded-full bg-[#07040f]/80 backdrop-blur-xl flex items-center justify-center border border-white/10 overflow-hidden py-4 md:py-5">
+                <span className="relative z-10 text-white/60 font-semibold tracking-widest text-xs md:text-sm">REGISTRATION CLOSED</span>
+              </span>
+            </div>
           </div>
 
           <div className="glass-panel p-6 md:p-10 lg:p-12 rounded-3xl cursor-target flex flex-col justify-between group hover:border-purple-400/30 transition-colors">
@@ -1291,6 +1298,78 @@ export function RegisterPage() {
                 Proudly powering Gameathon 2026 as our Title Sponsor.
               </p>
             </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ====== ASSOCIATE PARTNERS SECTION ====== */}
+      <section className="py-12 md:py-20 px-4 md:px-6 max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
+        >
+          {/* Label */}
+          <div className="text-[24px] md:text-[30px] uppercase tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-r from-gray-300 via-white to-gray-300 drop-shadow-[0_0_15px_rgba(192,192,192,0.4)] font-semibold mb-10 md:mb-14">
+            ✦ Associate Partners ✦
+          </div>
+
+          {/* Partner Logos Grid */}
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 w-full">
+
+            {/* Distinct Systems */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-gray-300/20 via-white/10 to-gray-300/20 blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative rounded-2xl p-6 md:p-8 flex items-center justify-center border border-gray-200/30 hover:border-white/50 transition-all duration-500 overflow-hidden w-[200px] h-[120px] md:w-[260px] md:h-[160px] bg-white">
+                <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-gray-200/30 to-transparent skew-x-[-45deg] animate-liquid-shine pointer-events-none" />
+                <img
+                  src={distinctLogo}
+                  alt="Distinct Systems & Technologies"
+                  className="max-w-full max-h-full object-contain rounded-lg drop-shadow-[0_0_12px_rgba(168,85,247,0.1)] group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-500"
+                />
+              </div>
+            </motion.div>
+
+            {/* Inspire Group */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-gray-300/20 via-white/10 to-gray-300/20 blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative rounded-2xl p-6 md:p-8 flex items-center justify-center border border-gray-200/30 hover:border-white/50 transition-all duration-500 overflow-hidden w-[200px] h-[120px] md:w-[260px] md:h-[160px] bg-white">
+                <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-gray-200/30 to-transparent skew-x-[-45deg] animate-liquid-shine pointer-events-none" />
+                <img
+                  src={inspireLogo}
+                  alt="Inspire Group Companies"
+                  className="max-w-full max-h-full object-contain rounded-lg drop-shadow-[0_0_12px_rgba(168,85,247,0.1)] group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-500"
+                />
+              </div>
+            </motion.div>
+
+            {/* 8Queens Software */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-gray-300/20 via-white/10 to-gray-300/20 blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative rounded-2xl p-6 md:p-8 flex items-center justify-center border border-gray-200/30 hover:border-white/50 transition-all duration-500 overflow-hidden w-[200px] h-[120px] md:w-[260px] md:h-[160px] bg-white">
+                <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-gray-200/30 to-transparent skew-x-[-45deg] animate-liquid-shine pointer-events-none" />
+                <img
+                  src={eightQueensLogo}
+                  alt="8Queens Software Technologies"
+                  className="max-w-full max-h-full object-contain rounded-lg drop-shadow-[0_0_12px_rgba(168,85,247,0.1)] group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-500"
+                />
+              </div>
+            </motion.div>
+
           </div>
         </motion.div>
       </section>
