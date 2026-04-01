@@ -1342,12 +1342,12 @@ export function RegisterPage() {
               className="relative group"
             >
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-gray-300/20 via-white/10 to-gray-300/20 blur-lg opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative rounded-2xl p-6 md:p-8 flex items-center justify-center border border-gray-200/30 hover:border-white/50 transition-all duration-500 overflow-hidden w-[200px] h-[120px] md:w-[260px] md:h-[160px] bg-white">
+              <div className="relative rounded-2xl p-3 md:p-4 flex items-center justify-center border border-gray-200/30 hover:border-white/50 transition-all duration-500 overflow-hidden w-[200px] h-[120px] md:w-[260px] md:h-[160px] bg-white">
                 <div className="absolute top-0 -left-[150%] w-full h-full bg-gradient-to-r from-transparent via-gray-200/30 to-transparent skew-x-[-45deg] animate-liquid-shine pointer-events-none" />
                 <img
                   src={inspireLogo}
                   alt="Inspire Group Companies"
-                  className="max-w-full max-h-full object-contain rounded-lg drop-shadow-[0_0_12px_rgba(168,85,247,0.1)] group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-500"
+                  className="max-w-[90%] max-h-[90%] object-contain rounded-lg scale-150 drop-shadow-[0_0_12px_rgba(168,85,247,0.1)] group-hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-500"
                 />
               </div>
             </motion.div>
