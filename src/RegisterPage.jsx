@@ -1191,12 +1191,14 @@ export function RegisterPage() {
               </ul>
             </div>
 
-            <LiquidGlassButton
-              onClick={() => window.open('https://forms.gle/viWNoWwzXUDdHsdK6', '_blank', 'noopener,noreferrer')}
-              innerClassName="w-full py-4 md:py-5 text-xs md:text-sm bg-[#07040f]/20 border-purple-500/30"
+           <div
+              className="relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] w-full opacity-50 cursor-not-allowed select-none"
             >
-              REGISTER FOR CHESS ( School Students Only)
-            </LiquidGlassButton>
+              <span className="absolute inset-0 bg-gradient-to-r from-gray-500/30 via-gray-400/20 to-gray-500/30" />
+              <span className="relative h-full w-full rounded-full bg-[#07040f]/80 backdrop-blur-xl flex items-center justify-center border border-white/10 overflow-hidden py-4 md:py-5">
+                <span className="relative z-10 text-white/60 font-semibold tracking-widest text-xs md:text-sm">REGISTRATION CLOSED</span>
+              </span>
+            </div>
           </div>
 
           {/* Card 3: Revo Racers Grand Prix */}
